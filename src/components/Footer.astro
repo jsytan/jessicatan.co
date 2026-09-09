@@ -1,0 +1,26 @@
+---
+import site from '../content/site.json';
+
+const { brand } = site.footer;
+const year = new Date().getFullYear();
+---
+
+<footer>
+	<div class="wrap">
+		<span>{brand}</span>
+		<span>&copy; {year}</span>
+	</div>
+</footer>
+
+<style>
+	footer {
+		padding: var(--space-26) 0;
+	}
+
+	footer .wrap {
+		display: flex;
+		justify-content: space-between;
+		font-size: var(--size-sm);
+		color: var(--color-body);
+	}
+</style>

@@ -1,0 +1,166 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import site from '../content/site.json';
+
+const { heading, intro, companiesPrimary, companiesSecondary } = site.experience;
+const { heading: ventureHeading, body: ventureBody } = site.venture;
+
+function logoExists(logoPath) {
+	if (!logoPath) return false;
+	return fs.existsSync(path.join(process.cwd(), 'public', logoPath));
+}
+---
+
+<section id="experience">
+	<div class="wrap">
+		<div class="sec-head"><h2>{heading}</h2></div>
+		<p class="exp-intro">{intro}</p>
+
+		<div class="company-bar">
+			{companiesPrimary.map((company) => (
+				<div class="company-item">
+					{logoExists(company.logo) ? (
+						<img class="co-logo" src={company.logo} alt={company.name} />
+					) : (
+						<p class="co-name">{company.name}</p>
+					)}
+					<p class="co-title">{company.title}</p>
+				</div>
+			))}
+		</div>
+
+		<div class="company-bar-secondary">
+			{companiesSecondary.map((company) => (
+				logoExists(company.logo) ? (
+					<img class="co-logo-secondary" src={company.logo} alt={company.name} />
+				) : (
+					<p class="co-name">{company.name}</p>
+				)
+			))}
+		</div>
+
+		<div class="venture-callout">
+			<p class="eyebrow">{ventureHeading}</p>
+			<p>{ventureBody}</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	section {
+		padding: var(--space-section) 0;
+	}
+
+	.sec-head {
+		margin: 0 0 var(--space-40);
+	}
+
+	.sec-head h2 {
+		font-family: var(--font-display);
+		font-size: var(--size-section-heading);
+		color: var(--color-ink);
+		margin: 0;
+	}
+
+	.exp-intro {
+		margin: 0 0 var(--space-28);
+		font-size: var(--size-md);
+		max-width: 66ch;
+		color: var(--color-body);
+	}
+
+	.company-bar {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: var(--space-xl) var(--space-lg);
+		padding: var(--space-xl) 0 var(--space-28);
+		border-top: 1px solid var(--color-line);
+	}
+
+	.company-item .co-name {
+		font-family: var(--font-display);
+		font-size: var(--size-lg);
+		font-weight: 600;
+		color: var(--color-ink);
+		margin: 0 0 var(--space-xs);
+		line-height: 1.25;
+	}
+
+	.co-logo {
+		max-height: var(--space-44);
+		height: var(--space-44);
+		width: auto;
+		display: block;
+		margin: 0 0 var(--space-xs);
+	}
+
+	.company-item .co-title {
+		font-size: var(--size-sm);
+		color: var(--color-body);
+		margin: 0 0 var(--space-xs);
+	}
+
+	.company-bar-secondary {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: var(--space-xl) var(--space-lg);
+		align-items: center;
+		padding: var(--space-lg) 0 var(--space-xl);
+		border-top: 1px solid var(--color-line);
+		border-bottom: 1px solid var(--color-line);
+		margin-bottom: var(--space-36);
+	}
+
+	.company-bar-secondary .co-name {
+		font-family: var(--font-display);
+		font-size: var(--size-md);
+		font-weight: 500;
+		color: var(--color-body);
+		margin: 0;
+	}
+
+	.co-logo-secondary {
+		max-height: var(--space-30);
+		height: var(--space-30);
+		width: auto;
+		display: block;
+	}
+
+	.venture-callout {
+		background: var(--color-paper-alt);
+		border-left: 3px solid var(--color-blue);
+		padding: var(--space-22) var(--space-28);
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+	}
+
+	.venture-callout p.eyebrow {
+		font-size: var(--size-eyebrow);
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-blue);
+		margin: 0 0 var(--space-sm);
+	}
+
+	.venture-callout p:last-child {
+		margin: 0;
+		font-size: var(--size-body);
+		color: var(--color-ink);
+		max-width: 60ch;
+	}
+
+	@media (max-width: 900px) {
+		.company-bar,
+		.company-bar-secondary {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 520px) {
+		.company-bar,
+		.company-bar-secondary {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

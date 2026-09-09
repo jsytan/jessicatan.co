@@ -1,0 +1,87 @@
+---
+import site from '../content/site.json';
+
+const { heading, sub, email, linkedin } = site.contact;
+---
+
+<section id="contact" class="contact">
+	<div class="wrap">
+		<h2>{heading}</h2>
+		<p class="sub">{sub}</p>
+		<div class="contact-actions">
+			<a class="btn btn-solid" href={`mailto:${email}`}>{email}</a>
+			<a class="btn btn-outline" href={linkedin} target="_blank" rel="noopener" aria-label="LinkedIn">
+				<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+					<rect x="1.5" y="1.5" width="21" height="21" rx="4" fill="none" stroke="currentColor" stroke-width="1.6" />
+					<text x="12" y="16.5" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11.5" fill="currentColor">in</text>
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	section {
+		padding: var(--space-section) 0;
+	}
+
+	.contact {
+		background: var(--color-ink);
+		color: var(--color-paper);
+	}
+
+	.contact .wrap {
+		padding-top: var(--space-contact-block);
+		padding-bottom: var(--space-contact-block);
+	}
+
+	.contact h2 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: var(--size-contact-heading);
+		line-height: 1.18;
+		max-width: 14ch;
+		text-wrap: balance;
+		margin: 0 0 var(--space-lg);
+		color: var(--color-paper);
+	}
+
+	.contact .sub {
+		font-size: var(--size-md);
+		color: var(--color-muted-on-dark);
+		margin: 0 0 var(--space-xl);
+		max-width: 44ch;
+	}
+
+	.contact-actions {
+		display: flex;
+		gap: var(--space-14);
+		flex-wrap: wrap;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		font-size: var(--size-body);
+		font-weight: 700;
+		padding: var(--space-14) var(--space-26);
+		border-radius: var(--radius-md);
+		text-decoration: none;
+		border: 1px solid transparent;
+	}
+
+	.btn-solid {
+		background: var(--color-paper);
+		color: var(--color-ink);
+	}
+
+	.btn-outline {
+		border-color: var(--color-line-on-dark);
+		color: var(--color-paper);
+		padding: var(--space-14) var(--space-18);
+	}
+
+	.btn-outline svg {
+		display: block;
+	}
+</style>

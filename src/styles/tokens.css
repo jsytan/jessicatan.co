@@ -1,0 +1,61 @@
+:root {
+  /* Colour */
+  --color-ink: #16213e;      /* headings, body-strong, closing section background */
+  --color-blue: #22409e;     /* accent — eyebrow, stat numbers, links, card rules */
+  --color-paper: #ffffff;    /* page background */
+  --color-paper-alt: #f3f5fa;/* section-alt background (Selected impact, callouts) */
+  --color-body: #5b6472;     /* body text */
+  --color-line: #e3e7ef;     /* hairlines, borders */
+  --color-muted-on-dark: #c3cadb;              /* secondary text on the dark contact band */
+  --color-line-on-dark: rgba(255, 255, 255, 0.4); /* outline-button border on the dark contact band */
+
+  /* Type */
+  --font-display: 'Lora', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --size-label: 0.75rem;     /* nav links, small caps labels */
+  --size-eyebrow: 0.8125rem; /* hero eyebrow */
+  --size-sm: 0.8125rem;      /* captions, secondary text */
+  --size-body: 0.9375rem;    /* body copy */
+  --size-md: 1rem;
+  --size-lg: 1.125rem;       /* company names, wordmark */
+  --size-section-heading: 1.75rem;  /* "How I help" / "Selected impact" / "Experience" */
+  --size-stat: 2.75rem;      /* Selected impact big numbers */
+  --size-hero: clamp(2.25rem, 4.4vw, 3.375rem);
+  --size-contact-heading: clamp(2rem, 4.2vw, 3rem);
+  --size-wordmark: 1.375rem;  /* nav wordmark */
+  --size-intro: 1.0625rem;    /* hero intro paragraph, expertise card headings */
+  --size-caption: 0.875rem;   /* hero location, small secondary text */
+
+  /* Space */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-22: 22px;
+  --space-26: 26px;
+  --space-28: 28px;
+  --space-30: 30px;
+  --space-36: 36px;
+  --space-44: 44px;
+  --space-40: 40px;
+  --space-section: clamp(56px, 9vw, 96px);
+  --space-hero-top: clamp(56px, 9vw, 88px);
+  --space-contact-block: clamp(64px, 9vw, 104px);
+  --content-width: 1120px;
+  --gutter: clamp(24px, 5vw, 64px);
+
+  /* Shape */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+}
+
+/* Breakpoints referenced by components (documented here, not enforced as vars —
+   CSS custom properties can't hold media query conditions):
+   tablet/desktop split at 900px, mobile-stack at 520px */

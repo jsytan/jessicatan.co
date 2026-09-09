@@ -1,0 +1,83 @@
+---
+import site from '../content/site.json';
+
+const { eyebrow, headline, intro, location } = site.hero;
+---
+
+<section class="hero">
+	<div class="wrap">
+		<p class="eyebrow">{eyebrow}</p>
+		<h1>{headline}</h1>
+		<div class="hero-row">
+			<p>{intro}</p>
+			<p class="hero-loc">
+				{location.map((line, i) => (
+					<>
+						{i > 0 && <br />}
+						{line}
+					</>
+				))}
+			</p>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding-top: var(--space-hero-top);
+		padding-bottom: var(--space-section);
+	}
+
+	.eyebrow {
+		font-size: var(--size-eyebrow);
+		font-weight: 700;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--color-blue);
+		margin: 0 0 var(--space-20);
+	}
+
+	h1 {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: var(--size-hero);
+		line-height: 1.18;
+		color: var(--color-ink);
+		max-width: 18ch;
+		text-wrap: balance;
+		margin: 0 0 var(--space-28);
+	}
+
+	.hero-row {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: var(--space-xl);
+		flex-wrap: wrap;
+	}
+
+	.hero-row p:first-child {
+		font-size: var(--size-intro);
+		max-width: 46ch;
+		margin: 0;
+		color: var(--color-body);
+	}
+
+	.hero-loc {
+		font-size: var(--size-caption);
+		color: var(--color-body);
+		text-align: right;
+		line-height: 1.5;
+		white-space: nowrap;
+	}
+
+	@media (max-width: 900px) {
+		.hero-row {
+			align-items: flex-start;
+		}
+
+		.hero-loc {
+			text-align: left;
+		}
+	}
+</style>

@@ -1,0 +1,81 @@
+---
+import '../styles/tokens.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../content/site.json';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<title>{site.meta.title}</title>
+		<meta name="description" content={site.meta.description} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={site.meta.title} />
+		<meta property="og:description" content={site.meta.description} />
+		<meta property="og:url" content={canonicalURL} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Lora:wght@500;600&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<Header />
+		<main id="top">
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style is:global>
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	body {
+		margin: 0;
+		background: var(--color-paper);
+		color: var(--color-body);
+		font-family: var(--font-body);
+		font-size: 16px;
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		html {
+			scroll-behavior: smooth;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+
+	a:focus-visible,
+	button:focus-visible {
+		outline: 2px solid var(--color-blue);
+		outline-offset: 3px;
+	}
+
+	.wrap {
+		max-width: var(--content-width);
+		margin: 0 auto;
+		padding-left: var(--gutter);
+		padding-right: var(--gutter);
+	}
+</style>

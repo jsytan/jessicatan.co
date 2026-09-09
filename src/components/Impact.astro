@@ -1,0 +1,80 @@
+---
+import site from '../content/site.json';
+
+const { heading, items } = site.impact;
+---
+
+<section class="impact-section">
+	<div class="wrap">
+		<div class="sec-head"><h2>{heading}</h2></div>
+		<div class="impact-grid">
+			{items.map((item) => (
+				<div class="impact-tile">
+					<span class="impact-stat">{item.stat}</span>
+					<p>{item.body}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	section {
+		padding: var(--space-section) 0;
+	}
+
+	.impact-section {
+		background: var(--color-paper-alt);
+	}
+
+	.sec-head {
+		margin: 0 0 var(--space-40);
+	}
+
+	.sec-head h2 {
+		font-family: var(--font-display);
+		font-size: var(--size-section-heading);
+		color: var(--color-ink);
+		margin: 0;
+	}
+
+	.impact-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1px;
+		background: var(--color-line);
+		border: 1px solid var(--color-line);
+	}
+
+	.impact-tile {
+		background: var(--color-paper);
+		padding: var(--space-40) var(--space-36);
+	}
+
+	.impact-stat {
+		font-family: var(--font-display);
+		font-weight: 600;
+		font-size: var(--size-stat);
+		color: var(--color-blue);
+		display: block;
+		margin-bottom: var(--space-14);
+		line-height: 1;
+	}
+
+	.impact-tile p {
+		margin: 0;
+		font-size: var(--size-body);
+		color: var(--color-body);
+		max-width: 34ch;
+	}
+
+	@media (max-width: 900px) {
+		.impact-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.impact-tile {
+			padding: var(--space-28) var(--space-lg);
+		}
+	}
+</style>

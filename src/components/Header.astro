@@ -1,0 +1,67 @@
+---
+import site from '../content/site.json';
+
+const { brand, links } = site.nav;
+---
+
+<header>
+	<div class="header-inner">
+		<a class="wordmark" href="#top">{brand}</a>
+		<nav aria-label="Primary">
+			<ul>
+				{links.map((link) => (
+					<li><a href={link.href}>{link.label}</a></li>
+				))}
+			</ul>
+		</nav>
+	</div>
+</header>
+
+<style>
+	header {
+		border-bottom: 1px solid var(--color-line);
+	}
+
+	.header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--space-26) var(--gutter);
+		max-width: var(--content-width);
+		margin: 0 auto;
+	}
+
+	.wordmark {
+		font-family: var(--font-display);
+		font-size: var(--size-wordmark);
+		color: var(--color-ink);
+		text-decoration: none;
+	}
+
+	nav ul {
+		list-style: none;
+		display: flex;
+		gap: var(--space-xl);
+		margin: 0;
+		padding: 0;
+	}
+
+	nav a {
+		text-decoration: none;
+		font-size: var(--size-label);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--color-ink);
+		opacity: 0.75;
+	}
+
+	nav a:last-child {
+		color: var(--color-blue);
+		opacity: 1;
+	}
+
+	nav a:hover {
+		opacity: 1;
+	}
+</style>

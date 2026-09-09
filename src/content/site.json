@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "title": "Jessica Tan — Growth, Product & Transformation Executive",
+    "description": "Jessica Tan works with founders, CEOs and leadership teams to turn ambitious strategy into commercial growth — across strategy, product, technology and operations.",
+    "url": "https://jessicatan.co"
+  },
+  "nav": {
+    "brand": "Jessica Tan",
+    "links": [
+      { "label": "Expertise", "href": "#expertise" },
+      { "label": "Experience", "href": "#experience" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "eyebrow": "Growth, Product & Transformation Executive",
+    "headline": "Turning ambitious strategy into commercial results.",
+    "intro": "I work with CEOs, leadership teams and founders to turn ambitious strategy into commercial growth. I deliver profit, product and transformation across high-growth start-ups, scale-ups and global organisations, including PE-backed businesses.",
+    "location": ["Berlin", "Working internationally"]
+  },
+  "expertise": {
+    "heading": "How I help",
+    "items": [
+      { "title": "Growth and commercial strategy", "body": "Clarifying where to play, strengthening propositions and pricing, and converting opportunity into measurable revenue." },
+      { "title": "Product and technology transformation", "body": "Connecting customer needs, commercial priorities and execution to build products and operating models that create real enterprise value." },
+      { "title": "Organisational transformation and CEO advisory", "body": "Helping leaders align priorities, operating models and teams around consequential business objectives — and deliver through complexity." }
+    ]
+  },
+  "impact": {
+    "heading": "Selected impact",
+    "items": [
+      { "stat": "€25m+", "body": "Revenue and synergies delivered through M&A and post-merger integration across three acquisitions, within three years." },
+      { "stat": "€200m", "body": "Commercial strategy mobilised across 11 European markets, aligning 60+ cross-functional stakeholders." },
+      { "stat": "10% → 50%", "body": "After-sales contract uptake grown by redesigning the customer journey, commercial proposition and delivery model." },
+      { "stat": "20%", "body": "Improvement in workforce utilisation through operational redesign and dispatch optimisation." }
+    ]
+  },
+  "experience": {
+    "heading": "Experience",
+    "intro": "More than 20 years across commercial growth, product, transformation, technology, operations and strategy in Australia, the UK, Germany and France. Experience in scale-up, start-up and private equity-backed environments.",
+    "companiesPrimary": [
+      { "name": "AVIV", "title": "Chief Strategy & Transformation Officer", "logo": "/logos/aviv.svg" },
+      { "name": "OVO Energy", "title": "GM Smart Home", "logo": "/logos/ovo-energy.svg" },
+      { "name": "The Coca-Cola Company", "title": "Director of Commercial Strategy", "logo": "/logos/coca-cola.svg" },
+      { "name": "Thermondo", "title": "Chief Product Officer", "logo": "/logos/thermondo.svg" }
+    ],
+    "companiesSecondary": [
+      { "name": "Bain & Company", "logo": "/logos/bain.svg" },
+      { "name": "Macquarie Bank", "logo": "/logos/macquarie.svg" }
+    ]
+  },
+  "venture": {
+    "heading": "Current venture",
+    "body": "Building a consumer product from zero to live beta — brand strategy through technical deployment — while advising select founders. Available for select interim, fractional and project engagements in commercial leadership and transformation."
+  },
+  "contact": {
+    "heading": "Let's discuss what you are trying to change.",
+    "sub": "For fractional leadership, advisory and selected consulting engagements.",
+    "email": "jessica@jessicatan.co",
+    "linkedin": "https://www.linkedin.com/in/jessicatan/"
+  },
+  "footer": { "brand": "Jessica Tan" }
+}

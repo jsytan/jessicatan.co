@@ -1,0 +1,67 @@
+---
+import site from '../content/site.json';
+
+const { heading, items } = site.expertise;
+---
+
+<section id="expertise">
+	<div class="wrap">
+		<div class="sec-head"><h2>{heading}</h2></div>
+		<div class="expertise-grid">
+			{items.map((item) => (
+				<div class="expertise-card">
+					<h3>{item.title}</h3>
+					<p>{item.body}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	section {
+		padding: var(--space-section) 0;
+	}
+
+	.sec-head {
+		margin: 0 0 var(--space-40);
+	}
+
+	.sec-head h2 {
+		font-family: var(--font-display);
+		font-size: var(--size-section-heading);
+		color: var(--color-ink);
+		margin: 0;
+	}
+
+	.expertise-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-40);
+	}
+
+	.expertise-card {
+		border-top: 3px solid var(--color-blue);
+		padding-top: var(--space-20);
+	}
+
+	.expertise-card h3 {
+		font-size: var(--size-intro);
+		font-weight: 700;
+		color: var(--color-ink);
+		margin: 0 0 var(--space-12);
+		line-height: 1.35;
+	}
+
+	.expertise-card p {
+		margin: 0;
+		font-size: var(--size-body);
+	}
+
+	@media (max-width: 900px) {
+		.expertise-grid {
+			grid-template-columns: 1fr;
+			gap: var(--space-xl);
+		}
+	}
+</style>
