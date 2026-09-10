@@ -4,7 +4,7 @@ import path from 'node:path';
 import site from '../content/site.json';
 
 const { heading, intro, companiesPrimary, companiesSecondary } = site.experience;
-const { heading: ventureHeading, body: ventureBody } = site.venture;
+const { heading: ventureHeading, bodyPrefix, linkLabel, linkHref, bodySuffix } = site.venture;
 
 function logoExists(logoPath) {
 	if (!logoPath) return false;
@@ -75,7 +75,9 @@ const LOGO_SCALE = {
 
 		<div class="venture-callout">
 			<p class="eyebrow">{ventureHeading}</p>
-			<p>{ventureBody}</p>
+			<p>
+				{bodyPrefix}<a class="venture-link" href={linkHref} target="_blank" rel="noopener">{linkLabel}</a>{bodySuffix}
+			</p>
 		</div>
 	</div>
 </section>
@@ -190,6 +192,13 @@ const LOGO_SCALE = {
 		font-size: clamp(0.9375rem, 0.86rem + 0.35vw, 1.0625rem);
 		color: var(--color-ink);
 		max-width: 100%;
+	}
+
+	.venture-link {
+		color: var(--color-blue);
+		font-weight: 700;
+		text-decoration: underline;
+		text-underline-offset: 2px;
 	}
 
 	@media (max-width: 767px) {

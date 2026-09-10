@@ -15,7 +15,7 @@
   "hero": {
     "eyebrow": "Growth, Product & Transformation Executive",
     "headline": "Turning ambitious strategy into commercial results.",
-    "intro": "I work with CEOs, leadership teams and founders to turn ambitious strategy into commercial growth. I deliver profit, product and transformation across high-growth start-ups, scale-ups and global organisations, including PE-backed businesses.",
+    "intro": "I work with CEOs, leadership teams and founders to turn ambitious strategy into commercial results. I deliver profit, product and transformation across high-growth start-ups, scale-ups and global organisations, including PE-backed businesses.",
     "location": ["Based in Berlin", "Working internationally"]
   },
   "expertise": {
@@ -51,10 +51,13 @@
   },
   "venture": {
     "heading": "Current venture",
-    "body": "Building a consumer product from zero to live beta, brand strategy through technical deployment. Available for select interim, fractional and project engagements in commercial leadership and transformation."
+    "bodyPrefix": "Building ",
+    "linkLabel": "POWER Kinds",
+    "linkHref": "https://powerkinds.com",
+    "bodySuffix": " from zero to live beta, brand strategy through technical deployment. Available for select interim, fractional and project engagements in commercial leadership and transformation."
   },
   "contact": {
-    "heading": "Let's discuss what you are trying to change.",
+    "heading": "Let's discuss what results you want.",
     "sub": "For fractional leadership, advisory and selected consulting engagements.",
     "email": "jessica@jessicatan.co",
     "linkedin": "https://www.linkedin.com/in/jessicatan/"
