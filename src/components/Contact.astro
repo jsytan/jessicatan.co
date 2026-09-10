@@ -47,10 +47,10 @@ const { heading, sub, email, linkedin } = site.contact;
 	}
 
 	.contact .sub {
-		font-size: var(--size-md);
+		font-size: clamp(1rem, 0.9rem + 0.35vw, 1.125rem);
 		color: var(--color-muted-on-dark);
 		margin: 0 0 var(--space-xl);
-		max-width: 44ch;
+		max-width: 100%;
 	}
 
 	.contact-actions {

@@ -10,6 +10,21 @@ function logoExists(logoPath) {
 	if (!logoPath) return false;
 	return fs.existsSync(path.join(process.cwd(), 'public', logoPath));
 }
+
+// All six source SVGs declare only a viewBox, no width/height — so every logo's
+// display area is a fixed, definite box (not auto-sized from the file), and the
+// artwork fits inside via object-fit:contain. The frame itself stays the same
+// height for every logo in a row, so titles line up on one baseline regardless
+// of which logo sits above them. Two logos get an explicit scale-down of the
+// artwork *within* that fixed frame to balance visual weight: OVO's mark is
+// squarer than AVIV/Thermondo's wide wordmarks and fills the box far more than
+// they do at the same height; Coca-Cola's ratio is close enough to the box
+// ratio that it also nearly maxes out the box, out of proportion with
+// Bain/Macquarie next to it.
+const LOGO_SCALE = {
+	'OVO Energy': 0.8,
+	'The Coca-Cola Company': 0.7,
+};
 ---
 
 <section id="experience">
@@ -17,26 +32,44 @@ function logoExists(logoPath) {
 		<div class="sec-head"><h2>{heading}</h2></div>
 		<p class="exp-intro">{intro}</p>
 
-		<div class="company-bar">
+		<div class="logo-row logo-row-primary">
 			{companiesPrimary.map((company) => (
-				<div class="company-item">
-					{logoExists(company.logo) ? (
-						<img class="co-logo" src={company.logo} alt={company.name} />
-					) : (
-						<p class="co-name">{company.name}</p>
-					)}
+				<div class="logo-col">
+					<div class="logo-frame">
+						{logoExists(company.logo) ? (
+							<img
+								class="company-logo"
+								src={company.logo}
+								alt={company.name}
+								style={LOGO_SCALE[company.name] ? `--logo-scale: ${LOGO_SCALE[company.name]}` : undefined}
+							/>
+						) : (
+							<span class="co-name-fallback">{company.name}</span>
+						)}
+					</div>
 					<p class="co-title">{company.title}</p>
 				</div>
 			))}
 		</div>
 
-		<div class="company-bar-secondary">
+		<div class="logo-divider"></div>
+
+		<div class="logo-row logo-row-secondary">
 			{companiesSecondary.map((company) => (
-				logoExists(company.logo) ? (
-					<img class="co-logo-secondary" src={company.logo} alt={company.name} />
-				) : (
-					<p class="co-name">{company.name}</p>
-				)
+				<div class="logo-col">
+					<div class="logo-frame">
+						{logoExists(company.logo) ? (
+							<img
+								class="company-logo"
+								src={company.logo}
+								alt={company.name}
+								style={LOGO_SCALE[company.name] ? `--logo-scale: ${LOGO_SCALE[company.name]}` : undefined}
+							/>
+						) : (
+							<span class="co-name-fallback">{company.name}</span>
+						)}
+					</div>
+				</div>
 			))}
 		</div>
 
@@ -65,66 +98,75 @@ function logoExists(logoPath) {
 
 	.exp-intro {
 		margin: 0 0 var(--space-28);
-		font-size: var(--size-md);
-		max-width: 66ch;
+		font-size: clamp(0.9375rem, 0.86rem + 0.35vw, 1.125rem);
+		max-width: 100%;
 		color: var(--color-body);
 	}
 
-	.company-bar {
+	.logo-row {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: var(--space-xl) var(--space-lg);
+		grid-template-columns: repeat(3, 1fr);
+		gap: var(--space-xl) var(--space-md);
+	}
+
+	.logo-row-primary {
 		padding: var(--space-xl) 0 var(--space-28);
 		border-top: 1px solid var(--color-line);
 	}
 
-	.company-item .co-name {
+	.logo-row-secondary {
+		padding: var(--space-28) 0 var(--space-xl);
+	}
+
+	.logo-divider {
+		height: 1px;
+		background: var(--color-line);
+	}
+
+	.logo-col {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	.logo-frame {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		max-width: 220px;
+		height: 72px;
+	}
+
+	.company-logo {
+		width: 100%;
+		height: calc(100% * var(--logo-scale, 1));
+		max-width: 100%;
+		max-height: 100%;
+		margin: auto;
+		object-fit: contain;
+		object-position: center;
+		display: block;
+	}
+
+	.co-name-fallback {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
 		font-family: var(--font-display);
 		font-size: var(--size-lg);
 		font-weight: 600;
 		color: var(--color-ink);
-		margin: 0 0 var(--space-xs);
-		line-height: 1.25;
 	}
 
-	.co-logo {
-		max-height: var(--space-44);
-		height: var(--space-44);
-		width: auto;
-		display: block;
-		margin: 0 0 var(--space-xs);
-	}
-
-	.company-item .co-title {
+	.co-title {
+		margin: var(--space-sm) 0 0;
 		font-size: var(--size-sm);
 		color: var(--color-body);
-		margin: 0 0 var(--space-xs);
-	}
-
-	.company-bar-secondary {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: var(--space-xl) var(--space-lg);
-		align-items: center;
-		padding: var(--space-lg) 0 var(--space-xl);
-		border-top: 1px solid var(--color-line);
-		border-bottom: 1px solid var(--color-line);
-		margin-bottom: var(--space-36);
-	}
-
-	.company-bar-secondary .co-name {
-		font-family: var(--font-display);
-		font-size: var(--size-md);
-		font-weight: 500;
-		color: var(--color-body);
-		margin: 0;
-	}
-
-	.co-logo-secondary {
-		max-height: var(--space-30);
-		height: var(--space-30);
-		width: auto;
-		display: block;
+		text-align: center;
 	}
 
 	.venture-callout {
@@ -145,22 +187,34 @@ function logoExists(logoPath) {
 
 	.venture-callout p:last-child {
 		margin: 0;
-		font-size: var(--size-body);
+		font-size: clamp(0.9375rem, 0.86rem + 0.35vw, 1.0625rem);
 		color: var(--color-ink);
-		max-width: 60ch;
+		max-width: 100%;
 	}
 
-	@media (max-width: 900px) {
-		.company-bar,
-		.company-bar-secondary {
-			grid-template-columns: repeat(2, 1fr);
+	@media (max-width: 767px) {
+		.logo-row {
+			gap: var(--space-lg) var(--space-sm);
+		}
+
+		.logo-frame {
+			max-width: 110px;
+			height: 56px;
+		}
+
+		.co-title {
+			font-size: 0.6875rem;
 		}
 	}
 
-	@media (max-width: 520px) {
-		.company-bar,
-		.company-bar-secondary {
-			grid-template-columns: 1fr;
+	@media (max-width: 480px) {
+		.logo-row {
+			gap: var(--space-md) var(--space-xs);
+		}
+
+		.logo-frame {
+			max-width: 84px;
+			height: 42px;
 		}
 	}
 </style>

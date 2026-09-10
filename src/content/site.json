@@ -41,10 +41,10 @@
     "companiesPrimary": [
       { "name": "AVIV", "title": "Chief Strategy & Transformation Officer", "logo": "/logos/aviv.svg" },
       { "name": "OVO Energy", "title": "GM Smart Home", "logo": "/logos/ovo-energy.svg" },
-      { "name": "The Coca-Cola Company", "title": "Director of Commercial Strategy", "logo": "/logos/coca-cola.svg" },
       { "name": "Thermondo", "title": "Chief Product Officer", "logo": "/logos/thermondo.svg" }
     ],
     "companiesSecondary": [
+      { "name": "The Coca-Cola Company", "logo": "/logos/coca-cola.svg" },
       { "name": "Bain & Company", "logo": "/logos/bain.svg" },
       { "name": "Macquarie Bank", "logo": "/logos/macquarie.svg" }
     ]
