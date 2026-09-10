@@ -64,4 +64,18 @@ const { brand, links } = site.nav;
 	nav a:hover {
 		opacity: 1;
 	}
+
+	@media (max-width: 520px) {
+		.header-inner {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: var(--space-sm);
+			padding-top: var(--space-lg);
+			padding-bottom: var(--space-lg);
+		}
+
+		nav ul {
+			gap: var(--space-lg);
+		}
+	}
 </style>
