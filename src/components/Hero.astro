@@ -4,6 +4,13 @@ import site from '../content/site.json';
 import portrait from '../assets/jessica-tan-portrait.png';
 
 const { eyebrow, headline, intro, location } = site.hero;
+
+// Break a multi-sentence headline onto one line per sentence so a punchy,
+// short-clause headline (e.g. "X. Y. I do both.") lands as intended
+// rhythmic beats instead of being wrapped mid-sentence by text-wrap:balance,
+// which only balances character count and doesn't know about sentences.
+// A single-sentence headline is unaffected (splits into one line, no <br>).
+const headlineLines = headline.split(/(?<=[.!?])\s+/).filter(Boolean);
 ---
 
 <section class="hero">
@@ -11,7 +18,14 @@ const { eyebrow, headline, intro, location } = site.hero;
 		<p class="eyebrow">{eyebrow}</p>
 		<div class="hero-grid">
 			<div class="hero-content">
-				<h1>{headline}</h1>
+				<h1>
+					{headlineLines.map((line, i) => (
+						<>
+							{line}
+							{i < headlineLines.length - 1 && <br />}
+						</>
+					))}
+				</h1>
 				<p class="hero-intro">{intro}</p>
 			</div>
 			<div class="hero-media">

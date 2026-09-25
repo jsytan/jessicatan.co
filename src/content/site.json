@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Jessica Tan — Growth, Product & Transformation Executive",
-    "description": "Jessica Tan works with founders, CEOs and leadership teams to turn ambitious strategy into commercial growth — across strategy, product, technology and operations.",
+    "title": "Jessica Tan - Transformation, Growth & Product Executive",
+    "description": "Jessica Tan is a C-level transformation and commercial executive who reshapes and scales products, commercial models and teams to accelerate profit across PE-backed and growth-stage businesses, and helps companies land AI transformation that delivers measurable commercial impact.",
     "url": "https://jessicatan.co"
   },
   "nav": {
@@ -13,17 +13,17 @@
     ]
   },
   "hero": {
-    "eyebrow": "Growth, Product & Transformation Executive",
-    "headline": "Turning ambitious strategy into commercial results.",
-    "intro": "I work with CEOs, leadership teams and founders to turn ambitious strategy into commercial results. I deliver profit, product and transformation across high-growth start-ups, scale-ups and global organisations, including PE-backed businesses.",
+    "eyebrow": "Transformation, Growth & Product Executive",
+    "headline": "Strategy decides. Change delivers. I've owned both.",
+    "intro": "I work with CEOs and PE-backed, growth-stage companies to drive the product, process and people change where most programmes stall. Recently building an AI product hands-on, I help teams land transformation that shows up in the P&L.",
     "location": ["Based in Berlin", "Working internationally"]
   },
   "expertise": {
-    "heading": "How I help",
+    "heading": "How I deliver",
     "items": [
-      { "title": "Growth and commercial strategy", "body": "Clarifying where to play, strengthening propositions and pricing, and converting opportunity into measurable revenue." },
-      { "title": "Product and technology transformation", "body": "Connecting customer needs, commercial priorities and execution to build products and operating models that create real enterprise value." },
-      { "title": "Organisational transformation and CEO advisory", "body": "Helping leaders align priorities, operating models and teams around consequential business objectives — and deliver through complexity." }
+      { "title": "AI transformation", "body": "Helping leadership teams land AI where it earns its keep, and steering CEOs through the people and process change that makes it stick." },
+      { "title": "Commercial growth and go-to-market", "body": "Clarifying where to play, strengthening propositions and pricing, and converting opportunity into measurable revenue." },
+      { "title": "Product and operating-model transformation", "body": "Connecting customer needs, commercial priorities and execution into products and operating models that create real enterprise value." }
     ]
   },
   "impact": {
@@ -37,7 +37,7 @@
   },
   "experience": {
     "heading": "Experience",
-    "intro": "More than 20 years across commercial growth, product, transformation, technology, operations and strategy in Australia, the UK, Germany and France. Experience in scale-up, start-up and private equity-backed environments.",
+    "intro": "Twenty years in commercial and product leadership, the last fifteen focused on transformation, across energy, real-estate marketplaces, FMCG and climate-tech, in Germany, the UK, France and Australia, including PE-backed and scale-up environments.",
     "companiesPrimary": [
       { "name": "AVIV", "title": "Chief Strategy & Transformation Officer", "logo": "/logos/aviv.svg" },
       { "name": "OVO Energy", "title": "GM Smart Home", "logo": "/logos/ovo-energy.svg" },
@@ -54,7 +54,7 @@
     "bodyPrefix": "Building ",
     "linkLabel": "POWER Kinds",
     "linkHref": "https://powerkinds.com",
-    "bodySuffix": " from zero to live beta, brand strategy through technical deployment. Available for select interim, fractional and project engagements in commercial leadership and transformation."
+    "bodySuffix": ", an AI personality product, partnering with a professor at ESMT Berlin. Brand strategy through technical build, now in private beta. Available for senior interim, fractional and advisory mandates spanning transformation, commercial growth and portfolio value creation, with PE-backed and growth-stage companies."
   },
   "contact": {
     "heading": "Let's discuss what results you want.",
